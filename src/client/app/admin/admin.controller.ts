@@ -1,4 +1,11 @@
-///<reference path="../../../typings/angularjs/angular.d.ts"/>
+///<reference path="../../../../typings/angularjs/angular.d.ts"/>
+module app.Controllers{
+    export interface IAdminController{
+        title: string;
+        activate: () => void;
+    }
+}
+
 (function() {
     'use strict';
 
