@@ -1,28 +1,31 @@
 ///<reference path="../../../../typings/angularjs/angular.d.ts"/>
-module app.Controllers{
-    export interface IAdminController{
+module app.Controllers {
+    export interface IAdminController {
         title: string;
         activate: () => void;
     }
-}
 
-(function() {
-    'use strict';
+    export class AdminController implements IAdminController {
+        static controllerId = 'AdminController';
+        title: string;
+
+        static $inject = ['logger'];
+        /* @ngInject */
+        constructor(private logger: any) {
+            this.init();
+        }
+
+        private init() {
+            this.title = 'Admin';
+            this.activate();
+        }
+
+        activate(): void {
+            this.logger.info('Activated Admin View');
+        }
+    }
 
     angular
         .module('app.admin')
-        .controller('AdminController', AdminController);
-
-    AdminController.$inject = ['logger'];
-    /* @ngInject */
-    function AdminController(logger) {
-        var vm = this;
-        vm.title = 'Admin';
-
-        activate();
-
-        function activate() {
-            logger.info('Activated Admin View');
-        }
-    }
-})();
+        .controller(AdminController.controllerId, AdminController);
+}
