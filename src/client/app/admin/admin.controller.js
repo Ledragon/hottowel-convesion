@@ -1,4 +1,5 @@
 ///<reference path="../../../../typings/angularjs/angular.d.ts"/>
+///<reference path="../blocks/logger/logger.ts"/>
 var app;
 (function (app) {
     var controllers;

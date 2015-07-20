@@ -1,4 +1,5 @@
 ///<reference path="../../../../../typings/angularjs/angular.d.ts"/>
+///<reference path="../../../../../typings/toastr/toastr.d.ts"/>
 var app;
 (function (app) {
     var blocks;
