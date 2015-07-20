@@ -1,4 +1,5 @@
 ///<reference path="../../../../typings/angularjs/angular.d.ts"/>
+///<reference path="../blocks/logger/logger.ts"/>
 module app.controllers {
     'use strict';
     export interface IAdminController {
@@ -12,7 +13,7 @@ module app.controllers {
 
         static $inject = ['logger'];
         /* @ngInject */
-        constructor(private logger: any) {
+        constructor(private logger: app.blocks.Ilogger) {
             this.init();
         }
 

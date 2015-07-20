@@ -4,16 +4,16 @@ module app.blocks {
     export interface Ilogger {
         showToasts: boolean;
 
-        error: (message, data, title) => void;
-        info: (message, data, title) => void;
-        success: (message, data, title) => void;
-        warning: (message, data, title) => void;
+        error: (message: string, data?: any, title?: string) => void;
+        info: (message: string, data?: any, title?: string) => void;
+        success: (message: string, data?: any, title?: string) => void;
+        warning: (message: string, data?: any, title?: string) => void;
 
         log: ng.ILogCall;
     }
 
     class logger implements Ilogger {
-        
+
         static serviceId = 'logger';
         showToasts: boolean;
         log: ng.ILogCall;
@@ -25,27 +25,27 @@ module app.blocks {
             this.log = $log.log;
         }
 
-        error(message, data, title) {
+        error(message: string, data?: any, title?: string): void {
             this.toastr.error(message, title);
             this.$log.error('Error: ' + message, data);
         }
 
-        info(message, data, title) {
+        info(message: string, data?: any, title?: string): void {
             this.toastr.info(message, title);
             this.$log.info('Info: ' + message, data);
         }
 
-        success(message, data, title) {
+        success(message: string, data?: any, title?: string): void {
             this.toastr.success(message, title);
             this.$log.info('Success: ' + message, data);
         }
 
-        warning(message, data, title) {
+        warning(message: string, data?: any, title?: string): void {
             this.toastr.warning(message, title);
             this.$log.warn('Warning: ' + message, data);
         }
-        
-        static instance($log, toastr) {
+
+        static instance($log: ng.ILogService, toastr: any): Ilogger {
             return new logger($log, toastr);
         }
     }
