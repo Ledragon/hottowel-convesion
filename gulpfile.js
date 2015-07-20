@@ -8,8 +8,6 @@ var path = require('path');
 var _ = require('lodash');
 var $ = require('gulp-load-plugins')({ lazy: true });
 
-var ts = require('gulp-typescript');
-
 var colors = $.util.colors;
 var envenv = $.util.env;
 var port = process.env.PORT || config.defaultPort;
@@ -76,7 +74,7 @@ gulp.task('styles', ['clean-styles'], function () {
 gulp.task('typescript', function () {
     return gulp.src(config.ts)
         .pipe($.typescript({
-            declarationFiles: true
+            target:'es5'
         }))
         .js
         .pipe(gulp.dest(config.clientApp));
@@ -155,7 +153,7 @@ gulp.task('wiredep', function () {
         .pipe(gulp.dest(config.client));
 });
 
-gulp.task('inject', ['wiredep', 'styles', 'templatecache'], function () {
+gulp.task('inject', ['wiredep', 'styles', 'typescript', 'templatecache'], function () {
     log('Wire up css into the html, after files are ready');
 
     return gulp
