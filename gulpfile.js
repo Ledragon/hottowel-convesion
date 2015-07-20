@@ -6,7 +6,9 @@ var glob = require('glob');
 var gulp = require('gulp');
 var path = require('path');
 var _ = require('lodash');
-var $ = require('gulp-load-plugins')({lazy: true});
+var $ = require('gulp-load-plugins')({ lazy: true });
+
+var ts = require('gulp-typescript');
 
 var colors = $.util.colors;
 var envenv = $.util.env;
@@ -365,6 +367,15 @@ gulp.task('bump', function() {
         .pipe($.print())
         .pipe($.bump(options))
         .pipe(gulp.dest(config.root));
+});
+
+gulp.task('typescript', function () {
+    return gulp.src('src/client/app/**/*.ts')
+        .pipe(ts({
+            declarationFiles: true
+        }))
+        .js
+        .pipe(gulp.dest('src/client/app'));
 });
 
 ////////////////

@@ -11,8 +11,10 @@
   "dependencies": {
     "body-parser": "^1.8.2",
     "express": "^4.9.3",
+    "gulp-typescript": "^2.7.8",
     "morgan": "^1.1.1",
-    "serve-favicon": "^2.0.1"
+    "serve-favicon": "^2.0.1",
+    "typescript": "^1.5.0-beta"
   },
   "devDependencies": {
     "browser-sync": "^1.5.8",
