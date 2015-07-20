@@ -1,4 +1,5 @@
 ///<reference path="../../../../../typings/angularjs/angular.d.ts"/>
+///<reference path="../../../../../typings/toastr/toastr.d.ts"/>
 module app.blocks {
     'use strict';
     export interface Ilogger {
@@ -20,7 +21,7 @@ module app.blocks {
 
         static $inject = ['$log', 'toastr'];
         /* @ngInject */
-        constructor(private $log: ng.ILogService, private toastr: any) {
+        constructor(private $log: ng.ILogService, private toastr: Toastr) {
             this.showToasts = true;
             this.log = $log.log;
         }
@@ -45,7 +46,7 @@ module app.blocks {
             this.$log.warn('Warning: ' + message, data);
         }
 
-        static instance($log: ng.ILogService, toastr: any): Ilogger {
+        static instance($log: ng.ILogService, toastr: Toastr): Ilogger {
             return new logger($log, toastr);
         }
     }
