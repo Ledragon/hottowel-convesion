@@ -23,6 +23,8 @@ module app.Controllers {
         activate(): void {
             this.logger.info('Activated Admin View');
         }
+        
+        tmp(){}
     }
 
     angular

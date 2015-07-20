@@ -16,6 +16,8 @@ var app;
             AdminController.prototype.activate = function () {
                 this.logger.info('Activated Admin View');
             };
+            AdminController.prototype.tmp = function () {
+            };
             AdminController.controllerId = 'AdminController';
             AdminController.$inject = ['logger'];
             return AdminController;
