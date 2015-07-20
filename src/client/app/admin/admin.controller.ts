@@ -1,5 +1,6 @@
 ///<reference path="../../../../typings/angularjs/angular.d.ts"/>
-module app.Controllers {
+module app.controllers {
+    'use strict';
     export interface IAdminController {
         title: string;
         activate: () => void;

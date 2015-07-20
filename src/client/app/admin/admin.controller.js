@@ -1,8 +1,9 @@
 ///<reference path="../../../../typings/angularjs/angular.d.ts"/>
 var app;
 (function (app) {
-    var Controllers;
-    (function (Controllers) {
+    var controllers;
+    (function (controllers) {
+        'use strict';
         var AdminController = (function () {
             /* @ngInject */
             function AdminController(logger) {
@@ -22,7 +23,7 @@ var app;
             AdminController.$inject = ['logger'];
             return AdminController;
         })();
-        Controllers.AdminController = AdminController;
+        controllers.AdminController = AdminController;
         angular.module('app.admin').controller(AdminController.controllerId, AdminController);
-    })(Controllers = app.Controllers || (app.Controllers = {}));
+    })(controllers = app.controllers || (app.controllers = {}));
 })(app || (app = {}));
