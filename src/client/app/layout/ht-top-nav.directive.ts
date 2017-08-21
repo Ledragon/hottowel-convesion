@@ -6,6 +6,7 @@ module app.directives {
     }
 
     class htTopNav implements IhtTopNavDirective {
+        static directiveId = 'htTopNav';
         bindToController = true;
         controller = TopNavController.controllerId;
         controllerAs = 'vm';
@@ -26,7 +27,7 @@ module app.directives {
 
     angular
         .module('app.layout')
-        .directive('htTopNav', htTopNav.instance);
+        .directive(htTopNav.directiveId, htTopNav.instance);
 
     interface ItopNavController {
 
